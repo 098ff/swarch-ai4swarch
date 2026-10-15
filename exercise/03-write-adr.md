@@ -1,0 +1,46 @@
+# Task 3: Write an ADR for a new requirement (≈ 20 min)
+
+> **Lecture link:** T3 (GPT-4 zero-shot was coherent but *less complete than humans*; few-shot closed much of the gap), AICH3 (context), W10 (message brokers).
+> **Question:** how much does an AI-written ADR improve when you give it an example and the real context?
+
+Read [`docs/scenario.md`](../docs/scenario.md) first: requirement **R-12**, what happens after an order is placed.
+
+## Run A: zero-shot
+
+1. New chat (**Ask** mode). **Attach nothing.**
+2. Run `/write-adr` and paste only the requirement text (the quoted block R-12 from the scenario).
+3. Save the result to `exercise/03a-adr-zero-shot.md`.
+
+## Run B: example + context
+
+1. New chat. Attach `docs/scenario.md`, `docs/adr/0001-use-redis-for-cart-storage.md` and `system/online-boutique/src/checkoutservice/main.go`.
+2. Run `/write-adr` with the same requirement text.
+3. Save the result to `exercise/03b-adr-with-context.md`.
+
+## Compare A and B
+
+| Criterion | Run A | Run B |
+|---|---|---|
+| Uses the scenario's numbers (latency, peak, MailFast limits)? | | |
+| Options considered (list them) | | |
+| Does the chosen option meet *every* quality goal in the scenario? | | |
+| Handles "exactly once" loyalty points? How? | | |
+| Handles MailFast's rate limit and slowness? How? | | |
+| Anything invented (a number, tool or fact not in the scenario)? | | |
+| Open questions it raised | | |
+
+## Take ownership: your final ADR
+
+You are the **Chief Strategist**. Copy Run B to `docs/adr/0002-<short-title>.md` and edit it until you would sign it.
+
+- Fix anything wrong or invented.
+- Add what is missing.
+- Make the final call yourself. You may disagree with the AI.
+
+Then summarise your edits:
+
+| # | What you changed | Why |
+|---|---|---|
+| 1 | | |
+| 2 | | |
+| 3 | | |
