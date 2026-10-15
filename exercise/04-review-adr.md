@@ -4,19 +4,13 @@
 
 ## Run
 
-1. New chat (**Ask** mode). Attach **your final ADR** `docs/adr/0002-….md` and `docs/scenario.md`.
-2. Run `/review-adr`.
-3. Paste the review:
+New chat in **Agent** mode. Type `/review-adr` and give the path of **your final ADR**, e.g. `docs/adr/0002-publish-order-events.md`.
 
-<details><summary>AI review</summary>
-
-<!-- paste here -->
-
-</details>
+The agent writes its review to [`outputs/4-review.md`](outputs/4-review.md). It must not edit your ADR; if it tries, click **Undo**.
 
 ## Judge the reviewer
 
-For each of the AI's findings, decide whether you agree.
+For each of the agent's findings, decide whether you agree.
 
 | # | AI finding (short) | Type (risk / sensitivity / trade-off / …) | Agree? | Your reasoning |
 |---|---|---|---|---|
@@ -33,7 +27,7 @@ For each of the AI's findings, decide whether you agree.
 
 Score each criterion from 0 to 2: 0 = missing or wrong, 1 = partly, 2 = good.
 
-| Criterion | 03a zero-shot | 03b with context | 0002 your final |
+| Criterion | 3a zero-shot | 3b with context | 0002 your final |
 |---|---|---|---|
 | Context: problem and real constraints stated | | | |
 | Options: ≥ 2 genuinely different, fair pros and cons | | | |
@@ -44,4 +38,4 @@ Score each criterion from 0 to 2: 0 = missing or wrong, 1 = partly, 2 = good.
 
 ## Final reflection (≤ 150 words)
 
-Which parts of an architect's work in this exercise would you now trust AI with, and which would you keep for yourself? Use evidence from Tasks 1–4.
+Which parts of an architect's work in this exercise would you now trust an AI agent with, and which would you keep for yourself? Use evidence from Tasks 1–4.

@@ -1,15 +1,17 @@
 ---
 name: review-adr
 description: Review an ADR like an architecture board (ATAM-style)
-agent: ask
-argument-hint: Attach the ADR to review (and the scenario, if it is relevant)
+agent: agent
+argument-hint: Path to the ADR to review
 ---
 
-Act as a critical architecture reviewer on an architecture review board. Review the attached ADR in the style of ATAM (Architecture Tradeoff Analysis Method).
+Act as a critical architecture reviewer on an architecture review board. Review this ADR in the style of ATAM (Architecture Tradeoff Analysis Method):
 
-Produce:
+**ADR to review:** ${input:adr:e.g. docs/adr/0002-publish-order-events.md}
 
-1. **Quality-attribute scenarios.** Two or three concrete scenarios (source · stimulus · environment · response · response measure) that this decision must satisfy. Use numbers from the attached files where they exist.
+You may read that ADR and `docs/scenario.md`, and nothing else. Do **not** edit the ADR. Write your review to `exercise/outputs/4-review.md` with:
+
+1. **Quality-attribute scenarios.** Two or three concrete scenarios (source · stimulus · environment · response · response measure) that this decision must satisfy. Use numbers from the scenario where they exist.
 2. **Findings table** with columns `Type | Finding | Why it matters`, where Type is one of:
    - **Risk**: a decision that may lead to an undesirable outcome
    - **Non-risk**: a decision that is sound, and why

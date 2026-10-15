@@ -5,20 +5,16 @@
 
 ## Run
 
-1. New chat (**Ask** mode). Attach `protos/demo.proto`, `src/checkoutservice/main.go` and `src/frontend/main.go`.
-2. Run `/recover-decision` and enter:
-   > Why do all services communicate synchronously over gRPC, using one shared `demo.proto`?
-3. Paste the full reconstructed ADR, including its **Claim check** table:
+New chat in **Agent** mode. Type `/recover-decision` and fill in:
 
-<details><summary>AI's reconstructed ADR</summary>
+- `decision`: `Why do all services communicate synchronously over gRPC, using one shared demo.proto?`
+- `evidence`: `system/online-boutique/protos/demo.proto, system/online-boutique/src/checkoutservice/main.go, system/online-boutique/src/frontend/main.go`
 
-<!-- paste here -->
-
-</details>
+The agent writes the reconstructed ADR, including its **Claim check** table, to [`outputs/2-recovered-adr.md`](outputs/2-recovered-adr.md).
 
 ## Audit the claim check
 
-Choose **five** claims from the AI's table: at least two it marked *Evidenced* and two it marked *Inferred*. Check each one yourself.
+Choose **five** claims from the agent's table: at least two it marked *Evidenced* and two it marked *Inferred*. Check each one yourself.
 
 | # | Claim (short) | AI says | You say | Why (file path or reasoning) |
 |---|---|---|---|---|
@@ -28,10 +24,10 @@ Choose **five** claims from the AI's table: at least two it marked *Evidenced* a
 | 4 | | | | |
 | 5 | | | | |
 
-**Count:** of all the AI's claims, how many are *Evidenced* according to the AI? ___ According to you? ___
+**Count:** of all the agent's claims, how many are *Evidenced* according to the agent? ___ According to you? ___
 
 ## Reflect
 
-1. Did the AI ever label a guess as *Evidenced*? Give an example, or explain how you checked that it didn't.
+1. Did the agent ever label a guess as *Evidenced*? Give an example, or explain how you checked that it didn't.
 2. A new developer reads only this reconstructed ADR. What wrong belief could they form?
 3. What can AI recover from code, and what can only the original architects know? Use one example from your ADR.

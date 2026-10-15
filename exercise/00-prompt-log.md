@@ -4,17 +4,17 @@
 **Copilot plan:** Student / Free / other: …
 **Model shown in chat** (hover over the response): …
 
-Log every request you send. "Attached" means the files or folders you added as context.
+Log every request you send to the agent. "Files the agent read" is what the agent reported, or what you saw it open.
 
-| # | Task | Prompt (slash command + your text) | Attached | Useful? (1–5) | Notes |
-|---|---|---|---|---|---|
-| 1 | 1-A | `/recover-architecture` | `protos/demo.proto` | | |
-| 2 | 1-B | `/recover-architecture` | | | |
-| 3 | | | | | |
-| 4 | | | | | |
-| 5 | | | | | |
-| 6 | | | | | |
-| 7 | | | | | |
-| 8 | | | | | |
-| 9 | | | | | |
-| 10 | | | | | |
+| # | Task / run | Prompt and inputs | Files the agent read | Stayed within the allowed evidence? | Useful? (1–5) | Notes |
+|---|---|---|---|---|---|---|
+| 1 | 1-A | `/recover-architecture` run=A, evidence=`protos/demo.proto` | | | | |
+| 2 | 1-B | `/recover-architecture` run=B | | | | |
+| 3 | | | | | | |
+| 4 | | | | | | |
+| 5 | | | | | | |
+| 6 | | | | | | |
+| 7 | | | | | | |
+| 8 | | | | | | |
+| 9 | | | | | | |
+| 10 | | | | | | |

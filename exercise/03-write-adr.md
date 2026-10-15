@@ -5,21 +5,18 @@
 
 Read [`docs/scenario.md`](../docs/scenario.md) first: requirement **R-12**, what happens after an order is placed.
 
-## Run A: zero-shot
+For both runs: start a **new chat** in **Agent** mode, type `/write-adr`, and paste the requirement text (the quoted R-12 block from the scenario).
 
-1. New chat (**Ask** mode). **Attach nothing.**
-2. Run `/write-adr` and paste only the requirement text (the quoted block R-12 from the scenario).
-3. Save the result to `exercise/03a-adr-zero-shot.md`.
+| Run | `run` | `context` | Output |
+|---|---|---|---|
+| a: zero-shot | `a` | `none` | [`outputs/3a-adr.md`](outputs/3a-adr.md) |
+| b: example + context | `b` | `docs/scenario.md, docs/adr/0001-use-redis-for-cart-storage.md, system/online-boutique/src/checkoutservice/main.go` | [`outputs/3b-adr.md`](outputs/3b-adr.md) |
 
-## Run B: example + context
+> In Run a, check that the agent really read nothing besides the template. If it opened `docs/scenario.md` anyway, note that in your prompt log, because it changes the comparison.
 
-1. New chat. Attach `docs/scenario.md`, `docs/adr/0001-use-redis-for-cart-storage.md` and `system/online-boutique/src/checkoutservice/main.go`.
-2. Run `/write-adr` with the same requirement text.
-3. Save the result to `exercise/03b-adr-with-context.md`.
+## Compare a and b
 
-## Compare A and B
-
-| Criterion | Run A | Run B |
+| Criterion | Run a | Run b |
 |---|---|---|
 | Uses the scenario's numbers (latency, peak, MailFast limits)? | | |
 | Options considered (list them) | | |
@@ -31,7 +28,7 @@ Read [`docs/scenario.md`](../docs/scenario.md) first: requirement **R-12**, what
 
 ## Take ownership: your final ADR
 
-You are the **Chief Strategist**. Copy Run B to `docs/adr/0002-<short-title>.md` and edit it until you would sign it.
+You are the **Chief Strategist**. Copy `outputs/3b-adr.md` to `docs/adr/0002-<short-title>.md`, and edit it **yourself** until you would sign it. Don't ask the agent to do this part.
 
 - Fix anything wrong or invented.
 - Add what is missing.
