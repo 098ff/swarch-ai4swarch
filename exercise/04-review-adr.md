@@ -4,9 +4,14 @@
 
 ## Run
 
-New chat in **Agent** mode. Type `/review-adr` and give the path of **your final ADR**, e.g. `docs/adr/0002-publish-order-events.md`.
+Start a new chat or session and send, with the path of **your final ADR**:
 
-The agent writes its review to [`outputs/4-review.md`](outputs/4-review.md). It must not edit your ADR; if it tries, click **Undo**.
+```
+Follow prompts/4-review-adr.md
+adr: docs/adr/0002-<your-title>.md
+```
+
+The agent writes its review to [`outputs/4-review.md`](outputs/4-review.md). It must not edit your ADR. If it does, reject or undo the change.
 
 ## Judge the reviewer
 

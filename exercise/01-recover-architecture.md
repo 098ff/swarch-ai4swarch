@@ -3,13 +3,28 @@
 > **Lecture link:** T7 architecture recovery, AICH2 (traceability), AICH3 (context).
 > **Question:** how much of an architecture can AI recover, and how much does it depend on the evidence it reads?
 
-For each run: start a **new chat** in **Agent** mode, type `/recover-architecture`, and fill in the inputs. The agent writes its result to `exercise/outputs/1<run>-architecture.md`. Click **Keep** to accept the new file.
+For each run, start a **new chat or session** in your agent and send the message below. The agent follows [`prompts/1-recover-architecture.md`](../prompts/1-recover-architecture.md) and writes its result to `exercise/outputs/1<run>-architecture.md`.
 
-| Run | `run` | `evidence` |
-|---|---|---|
-| A: interfaces only | `A` | `system/online-boutique/protos/demo.proto` |
-| B: interfaces + deployment config | `B` | `system/online-boutique/protos/demo.proto, system/online-boutique/kubernetes-manifests/` |
-| C: free exploration *(optional; uses more credits)* | `C` | `whole workspace` |
+**Run A: interfaces only**
+```
+Follow prompts/1-recover-architecture.md
+run: A
+evidence: system/online-boutique/protos/demo.proto
+```
+
+**Run B: interfaces + deployment config**
+```
+Follow prompts/1-recover-architecture.md
+run: B
+evidence: system/online-boutique/protos/demo.proto, system/online-boutique/kubernetes-manifests/
+```
+
+**Run C: free exploration** *(optional; uses the most credits)*
+```
+Follow prompts/1-recover-architecture.md
+run: C
+evidence: whole workspace
+```
 
 While the agent works, watch which files it opens. If it reads files outside the evidence you allowed, write that down in your prompt log.
 
@@ -37,9 +52,19 @@ Then list what Run B **got wrong or missed**:
 - **Missing dependencies** (real but not in the diagram): …
 - **Containers to question** (e.g. something present in `src/` but not deployed, or deployed but not in `src/`): …
 
+## Compare with a classmate who used a different agent
+
+Find someone who used a different agent or model. Compare your Run B results.
+
+| | Your agent: … | Their agent: … |
+|---|---|---|
+| Containers found | | |
+| Dependencies found | | |
+| False or missing dependencies | | |
+
 ## Reflect (2–3 sentences each)
 
 1. Compare A and B. What could the agent **not** know from the `.proto` file alone, and why?
-2. If you did Run C: did free exploration beat Run B? Which files did the agent choose to read, and was it worth the extra credits?
-3. Which **one** finding would mislead a new team member most, if the diagram were published without checking?
+2. If you did Run C: did free exploration beat Run B? Which files did the agent choose to read, and was it worth the extra cost?
+3. Two agents gave different diagrams of the same code. What does that tell you about using any single AI output as documentation?
 4. How does this relate to **AICH2**? Would this diagram stay correct after the next sprint? What would keep it in sync?

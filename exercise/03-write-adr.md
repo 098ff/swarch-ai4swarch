@@ -5,12 +5,23 @@
 
 Read [`docs/scenario.md`](../docs/scenario.md) first: requirement **R-12**, what happens after an order is placed.
 
-For both runs: start a **new chat** in **Agent** mode, type `/write-adr`, and paste the requirement text (the quoted R-12 block from the scenario).
+For each run, start a **new chat or session** and send the message below. Replace `<paste R-12 here>` with the quoted R-12 block from the scenario.
 
-| Run | `run` | `context` | Output |
-|---|---|---|---|
-| a: zero-shot | `a` | `none` | [`outputs/3a-adr.md`](outputs/3a-adr.md) |
-| b: example + context | `b` | `docs/scenario.md, docs/adr/0001-use-redis-for-cart-storage.md, system/online-boutique/src/checkoutservice/main.go` | [`outputs/3b-adr.md`](outputs/3b-adr.md) |
+**Run a: zero-shot** → [`outputs/3a-adr.md`](outputs/3a-adr.md)
+```
+Follow prompts/3-write-adr.md
+run: a
+context: none
+requirement: <paste R-12 here>
+```
+
+**Run b: example + context** → [`outputs/3b-adr.md`](outputs/3b-adr.md)
+```
+Follow prompts/3-write-adr.md
+run: b
+context: docs/scenario.md, docs/adr/0001-use-redis-for-cart-storage.md, system/online-boutique/src/checkoutservice/main.go
+requirement: <paste R-12 here>
+```
 
 > In Run a, check that the agent really read nothing besides the template. If it opened `docs/scenario.md` anyway, note that in your prompt log, because it changes the comparison.
 

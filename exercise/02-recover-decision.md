@@ -5,10 +5,13 @@
 
 ## Run
 
-New chat in **Agent** mode. Type `/recover-decision` and fill in:
+Start a new chat or session in your agent and send:
 
-- `decision`: `Why do all services communicate synchronously over gRPC, using one shared demo.proto?`
-- `evidence`: `system/online-boutique/protos/demo.proto, system/online-boutique/src/checkoutservice/main.go, system/online-boutique/src/frontend/main.go`
+```
+Follow prompts/2-recover-decision.md
+decision: Why do all services communicate synchronously over gRPC, using one shared demo.proto?
+evidence: system/online-boutique/protos/demo.proto, system/online-boutique/src/checkoutservice/main.go, system/online-boutique/src/frontend/main.go
+```
 
 The agent writes the reconstructed ADR, including its **Claim check** table, to [`outputs/2-recovered-adr.md`](outputs/2-recovered-adr.md).
 
