@@ -81,7 +81,7 @@ Part A needs about **5 agent requests**. Part B needs none.
 | | 5 | [Individual reflection](exercise/05-reflection.md) | | 0 | after class is fine |
 | | ★ | [Bonus: recover an unwritten decision](exercise/bonus-recover-decision.md) | `prompts/bonus-recover-decision.md` | 1 | optional, take-home |
 
-> The worksheets are in English. You may answer in Thai or English.
+> The worksheets, scenario and role cards are in English and Thai. You may answer in Thai or English. Messages to the agent stay in English.
 
 ## Submission (Assignment 5, due by the end of class)
 
