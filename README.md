@@ -40,7 +40,10 @@
    - clone ลงเครื่อง แล้วเปิดโฟลเดอร์ใน VS Code
 4. **ติดตั้ง extension สำหรับ Mermaid ที่แนะนำทั้งสองตัว** เมื่อ VS Code ถาม (หรือค้นหาในหน้าต่าง Extensions)
    - **Markdown Preview Mermaid Support** (`bierner.markdown-mermaid`): แสดงแผนภาพใน Markdown preview
-   - **Mermaid Chart** (`MermaidChart.vscode-mermaid-chart`): ดูตัวอย่างและแก้ไขแผนภาพ Mermaid และแจ้งข้อผิดพลาดของ syntax
+   - **Mermaid** โดย Mermaid (`MermaidChart.vscode-mermaid-chart`): extension ทางการของ Mermaid ใช้ดูตัวอย่างและแก้ไขแผนภาพ และแจ้งข้อผิดพลาดของ syntax
+
+     <img src="docs/img/mermaid-extensions.png" alt="หน้าต่าง Extensions ใน VS Code ที่ค้นหาคำว่า Mermaid แสดง extension Mermaid ทางการ และ Markdown Preview Mermaid Support" width="560">
+
 5. **ตรวจว่า agent เห็นกติกาของ repo นี้** เปิดแชตหรือ session ใหม่ แล้วถามว่า *"What are the rules for AI agents in this repository?"* agent ควรสรุปเนื้อหาจาก [`AGENTS.md`](AGENTS.md) ได้ หากไม่ได้ ให้ขึ้นต้นข้อความของทุกงานด้วย `Read AGENTS.md first.`
 
 ## แบบฝึกหัดนี้ใช้กับ agent ใดก็ได้อย่างไร

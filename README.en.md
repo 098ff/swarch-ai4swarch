@@ -40,7 +40,10 @@ Expected time: about 75 minutes in class.
    - Clone it and open the folder in VS Code.
 4. **Install the two recommended Mermaid extensions** when VS Code asks (or search for them in the Extensions view):
    - **Markdown Preview Mermaid Support** (`bierner.markdown-mermaid`): renders the diagrams in the Markdown preview
-   - **Mermaid Chart** (`MermaidChart.vscode-mermaid-chart`): previews and edits Mermaid diagrams, and highlights syntax errors
+   - **Mermaid** by Mermaid (`MermaidChart.vscode-mermaid-chart`): the official Mermaid editor; previews and edits diagrams, and highlights syntax errors
+
+     <img src="docs/img/mermaid-extensions.png" alt="VS Code Extensions view searching for Mermaid, showing the official Mermaid extension and Markdown Preview Mermaid Support" width="560">
+
 5. **Check that your agent can see the rules.** Open a new chat or session and ask: *"What are the rules for AI agents in this repository?"* It should summarise [`AGENTS.md`](AGENTS.md). If it doesn't, start each task message with `Read AGENTS.md first.`
 
 ## How the exercise works with any agent
