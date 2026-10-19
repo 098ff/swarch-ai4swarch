@@ -34,6 +34,9 @@ Expected time: about 75 minutes in class.
    Plain chat that can't open files won't work, because the agent must read the code and write its results to files.
 3. **Create your own copy of this repository.**
    - Click **Use this template → Create a new repository**. It can be private.
+
+     <img src="docs/img/use-this-template.png" alt="The Use this template button with Create a new repository selected" width="480">
+
    - Clone it and open the folder in VS Code.
 4. **Install the recommended extension** when VS Code asks: **Markdown Preview Mermaid Support**, which renders the diagrams you will produce.
 5. **Check that your agent can see the rules.** Open a new chat or session and ask: *"What are the rules for AI agents in this repository?"* It should summarise [`AGENTS.md`](AGENTS.md). If it doesn't, start each task message with `Read AGENTS.md first.`
