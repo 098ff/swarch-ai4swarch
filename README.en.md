@@ -38,7 +38,9 @@ Expected time: about 75 minutes in class.
      <img src="docs/img/use-this-template.png" alt="The Use this template button with Create a new repository selected" width="480">
 
    - Clone it and open the folder in VS Code.
-4. **Install the recommended extension** when VS Code asks: **Markdown Preview Mermaid Support**, which renders the diagrams you will produce.
+4. **Install the two recommended Mermaid extensions** when VS Code asks (or search for them in the Extensions view):
+   - **Markdown Preview Mermaid Support** (`bierner.markdown-mermaid`): renders the diagrams in the Markdown preview
+   - **Mermaid Chart** (`MermaidChart.vscode-mermaid-chart`): previews and edits Mermaid diagrams, and highlights syntax errors
 5. **Check that your agent can see the rules.** Open a new chat or session and ask: *"What are the rules for AI agents in this repository?"* It should summarise [`AGENTS.md`](AGENTS.md). If it doesn't, start each task message with `Read AGENTS.md first.`
 
 ## How the exercise works with any agent

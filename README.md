@@ -38,7 +38,9 @@
      <img src="docs/img/use-this-template.png" alt="ปุ่ม Use this template และเมนู Create a new repository" width="480">
 
    - clone ลงเครื่อง แล้วเปิดโฟลเดอร์ใน VS Code
-4. **ติดตั้ง extension ที่แนะนำ** เมื่อ VS Code ถาม คือ **Markdown Preview Mermaid Support** สำหรับแสดงแผนภาพที่นิสิตจะสร้าง
+4. **ติดตั้ง extension สำหรับ Mermaid ที่แนะนำทั้งสองตัว** เมื่อ VS Code ถาม (หรือค้นหาในหน้าต่าง Extensions)
+   - **Markdown Preview Mermaid Support** (`bierner.markdown-mermaid`): แสดงแผนภาพใน Markdown preview
+   - **Mermaid Chart** (`MermaidChart.vscode-mermaid-chart`): ดูตัวอย่างและแก้ไขแผนภาพ Mermaid และแจ้งข้อผิดพลาดของ syntax
 5. **ตรวจว่า agent เห็นกติกาของ repo นี้** เปิดแชตหรือ session ใหม่ แล้วถามว่า *"What are the rules for AI agents in this repository?"* agent ควรสรุปเนื้อหาจาก [`AGENTS.md`](AGENTS.md) ได้ หากไม่ได้ ให้ขึ้นต้นข้อความของทุกงานด้วย `Read AGENTS.md first.`
 
 ## แบบฝึกหัดนี้ใช้กับ agent ใดก็ได้อย่างไร
