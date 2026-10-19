@@ -33,7 +33,7 @@ Expected time: about 75 minutes in class.
 
    Plain chat that can't open files won't work, because the agent must read the code and write its results to files.
 3. **Create your own copy of this repository.**
-   - Click **Use this template → Create a new repository**. It can be private.
+   - Click **Use this template → Create a new repository**, and choose **Public**.
 
      <img src="docs/img/use-this-template.png" alt="The Use this template button with Create a new repository selected" width="480">
 
@@ -95,7 +95,7 @@ Part A needs about **5 agent requests**. Part B needs none.
 
 1. Fill in worksheets 00–05 in `exercise/`, including your group's review-board record. Keep the agent's files in `exercise/outputs/`, and write your final ADR at `docs/adr/0002-*.md`.
 2. Commit and push to your repository.
-3. Submit the repository URL on MCV. If the repository is private, add your instructor as a collaborator.
+3. Submit the repository URL on MCV. Make sure the repository is public.
 
 ## What's in this repository
 

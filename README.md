@@ -33,7 +33,7 @@
 
    การแชตธรรมดาที่เปิดไฟล์ไม่ได้จะใช้ไม่ได้ เพราะ agent ต้องอ่านโค้ดและเขียนผลลัพธ์ลงไฟล์
 3. **สร้างสำเนา repository นี้เป็นของตัวเอง**
-   - กด **Use this template → Create a new repository** (ตั้งเป็น private ได้)
+   - กด **Use this template → Create a new repository** แล้วเลือกเป็นแบบ **Public**
 
      <img src="docs/img/use-this-template.png" alt="ปุ่ม Use this template และเมนู Create a new repository" width="480">
 
@@ -95,7 +95,7 @@
 
 1. กรอกใบงาน 00–05 ในโฟลเดอร์ `exercise/` รวมถึงบันทึกผลการประชุมคณะกรรมการของกลุ่ม เก็บไฟล์ที่ agent สร้างไว้ใน `exercise/outputs/` และเขียน ADR ฉบับสุดท้ายไว้ที่ `docs/adr/0002-*.md`
 2. commit และ push ขึ้น repository ของตัวเอง
-3. ส่ง URL ของ repository ใน MCV หาก repository เป็น private ให้เพิ่มผู้สอนเป็น collaborator
+3. ส่ง URL ของ repository ใน MCV โดยเปิดให้ repository เป็นแบบ public
 
 ## โครงสร้างของ repository
 
