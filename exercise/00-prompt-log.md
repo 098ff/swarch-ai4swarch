@@ -11,11 +11,8 @@ Log every request you send to the agent. "Files the agent read" is what the agen
 |---|---|---|---|---|---|---|---|
 | 1 | 1-A | | `prompts/1-…` run A | | | | |
 | 2 | 1-B | | `prompts/1-…` run B | | | | |
-| 3 | | | | | | | |
-| 4 | | | | | | | |
-| 5 | | | | | | | |
+| 3 | 2-a | | `prompts/2-…` run a | | | | |
+| 4 | 2-b | | `prompts/2-…` run b | | | | |
+| 5 | 3 | | `prompts/3-…` | | | | |
 | 6 | | | | | | | |
 | 7 | | | | | | | |
-| 8 | | | | | | | |
-| 9 | | | | | | | |
-| 10 | | | | | | | |

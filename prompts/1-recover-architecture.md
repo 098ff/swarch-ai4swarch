@@ -2,14 +2,14 @@
 
 ## Inputs (from the student's message)
 
-- `run`: `A`, `B` or `C`
-- `evidence`: the files and folders you may read, or `whole workspace`
+- `run`: `A` or `B`
+- `evidence`: the files and folders you may read
 
 ## Instructions
 
 Recover the **C4 container-level architecture** of the Online Boutique system.
 
-Read **only** the `evidence`. If it is `whole workspace`, explore `system/online-boutique/` as you see fit, and list every file you opened.
+Read **only** the `evidence`.
 
 Write the result to `exercise/outputs/1<run>-architecture.md` (e.g. `exercise/outputs/1A-architecture.md`), with these sections in order:
 

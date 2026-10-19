@@ -1,4 +1,4 @@
-# Task 2 prompt: Recover an undocumented decision
+# Bonus task prompt: Recover an undocumented decision
 
 ## Inputs (from the student's message)
 
@@ -9,7 +9,7 @@
 
 Nobody wrote an ADR for the `decision` in Online Boutique.
 
-Read only the `evidence` and the ADR template `docs/adr/template.md`. Reconstruct the decision as an ADR using the template, with status **"Reconstructed"**, and write it to `exercise/outputs/2-recovered-adr.md`. Start the file with a line stating your agent and model, if you know them.
+Read only the `evidence` and the ADR template `docs/adr/template.md`. Reconstruct the decision as an ADR using the template, with status **"Reconstructed"**, and write it to `exercise/outputs/bonus-recovered-adr.md`. Start the file with a line stating your agent and model, if you know them.
 
 At the end of the file, add a section **Claim check**: a table with one row per claim in the ADR (context, options, rationale, consequences):
 

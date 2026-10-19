@@ -6,12 +6,14 @@
 
 You'll use **an AI coding agent in VS Code** as an architecture assistant on a real microservices system, [Online Boutique](system/online-boutique/). Use whichever agent you have: GitHub Copilot, Gemini, Claude, Codex, Cursor or another. Then you'll judge how good its work is. The goal is not to get the AI to do the assignment. The goal is to find out **where AI helps an architect and where it can't be trusted**, which is the main finding of this week's lecture.
 
-You will:
+The exercise has two parts:
 
-1. **Recover** the architecture from the code (lecture topic T7: architecture recovery)
-2. **Recover a decision** that was never written down (T5: decision recovery, knowledge vaporization)
-3. **Make a new decision** with an AI-written ADR, with and without context (T3: ADR generation)
-4. **Review** the ADR the way an architecture board would, then take responsibility for the final version (AICH4, "Chief Strategist")
+- **Part A: hands-on with an AI agent (≈ 40 min, individual)**
+  1. **Recover** the architecture from the code (lecture topic T7: architecture recovery)
+  2. **Write an ADR** for a new requirement with the AI, with and without context, then make it your own (T3: ADR generation)
+  3. **Get the AI's review** of your ADR, ATAM-style (P5: AI as Chief Analyst)
+- **Part B: architecture review board role-play (≈ 25 min, groups of 4)**
+  - One group member's ADR goes to a review board. The **architect** defends it, the **AI analyst** presents the AI's review, and a **product owner** and an **SRE** bring knowledge the AI never saw. The board decides, and records which concerns the AI caught and which it missed (AICH4: *plausible ≠ appropriate*).
 
 Expected time: about 75 minutes in class.
 
@@ -50,11 +52,13 @@ Expected time: about 75 minutes in class.
 - **The agent writes its result to `exercise/outputs/`.** You review that file, then accept the change. Reject or undo anything else it tries to change.
 - **The agent must not** edit `system/`, `prompts/`, the example ADR or your worksheets, and must not run terminal commands. If it asks to run a command, decline.
 
-Because everyone uses the same task files and rules, results from different agents can be compared. Comparing them is part of Task 1.
+Because everyone uses the same task files and rules, results from different agents can be compared.
+
+**Never let your agent read `docs/review-board/`.** Those role cards are for Part B, and the point is that the AI didn't see them.
 
 ## Budget
 
-The core tasks need about **8–10 agent requests**. Optional Run C in Task 1 adds one more, but it's an expensive one.
+Part A needs about **5 agent requests**. Part B needs none.
 
 - Each agent request reads files and writes a result, so it uses more of your quota than a chat answer. **Reading less is cheaper.**
 - **Start a new chat or session for every run.** Old conversations are sent again with each request.
@@ -68,18 +72,20 @@ The core tasks need about **8–10 agent requests**. Optional Run C in Task 1 ad
 
 ## The tasks
 
-| # | Worksheet | Task file | Agent requests |
-|---|---|---|---|
-| 1 | [Recover the architecture](exercise/01-recover-architecture.md) | `prompts/1-recover-architecture.md` | 2 (+1 optional) |
-| 2 | [Recover an unwritten decision](exercise/02-recover-decision.md) | `prompts/2-recover-decision.md` | 1 |
-| 3 | [Write an ADR for a new requirement](exercise/03-write-adr.md) | `prompts/3-write-adr.md` | 2 |
-| 4 | [Review it and take ownership](exercise/04-review-adr.md) | `prompts/4-review-adr.md` | 1 |
+| Part | # | Worksheet | Task file | Agent requests | Time |
+|---|---|---|---|---|---|
+| A | 1 | [Recover the architecture](exercise/01-recover-architecture.md) | `prompts/1-recover-architecture.md` | 2 | 15 min |
+| A | 2 | [Write an ADR for a new requirement](exercise/02-write-adr.md) | `prompts/2-write-adr.md` | 2 | 20 min |
+| A | 3 | [Get the AI's review](exercise/03-ai-review.md) | `prompts/3-review-adr.md` | 1 | 5 min |
+| B | 4 | [Architecture review board](exercise/04-review-board.md) | (role cards in `docs/review-board/`) | 0 | 25 min |
+| | 5 | [Individual reflection](exercise/05-reflection.md) | | 0 | after class is fine |
+| | ★ | [Bonus: recover an unwritten decision](exercise/bonus-recover-decision.md) | `prompts/bonus-recover-decision.md` | 1 | optional, take-home |
 
 > The worksheets are in English. You may answer in Thai or English.
 
 ## Submission (Assignment 5, due by the end of class)
 
-1. Fill in all worksheets in `exercise/`. Keep the agent's files in `exercise/outputs/`, and write your final ADR at `docs/adr/0002-*.md`.
+1. Fill in worksheets 00–05 in `exercise/`, including your group's review-board record. Keep the agent's files in `exercise/outputs/`, and write your final ADR at `docs/adr/0002-*.md`.
 2. Commit and push to your repository.
 3. Submit the repository URL on MCV. If the repository is private, add your instructor as a collaborator.
 
@@ -87,11 +93,12 @@ The core tasks need about **8–10 agent requests**. Optional Run C in Task 1 ad
 
 ```
 AGENTS.md                   rules for every AI agent (+ GEMINI.md, CLAUDE.md, .github/copilot-instructions.md pointers)
-prompts/                    the four task files you ask the agent to follow
+prompts/                    the task files you ask the agent to follow
 docs/
   adr/template.md           the ADR format we use
-  adr/0001-…                an example ADR (used in Task 3)
-  scenario.md               business context for Task 3
+  adr/0001-…                an example ADR (used in Task 2)
+  scenario.md               business context for Task 2
+  review-board/             role cards for Part B (humans only)
 exercise/                   your worksheets (you edit these)
   outputs/                  files written by the AI agent
 system/online-boutique/     the system you analyse (trimmed snapshot)

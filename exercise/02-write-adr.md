@@ -1,4 +1,4 @@
-# Task 3: Write an ADR for a new requirement (≈ 20 min)
+# Task 2: Write an ADR for a new requirement (≈ 20 min)
 
 > **Lecture link:** T3 (GPT-4 zero-shot was coherent but *less complete than humans*; few-shot closed much of the gap), AICH3 (context), W10 (message brokers).
 > **Question:** how much does an AI-written ADR improve when you give it an example and the real context?
@@ -7,17 +7,17 @@ Read [`docs/scenario.md`](../docs/scenario.md) first: requirement **R-12**, what
 
 For each run, start a **new chat or session** and send the message below. Replace `<paste R-12 here>` with the quoted R-12 block from the scenario.
 
-**Run a: zero-shot** → [`outputs/3a-adr.md`](outputs/3a-adr.md)
+**Run a: zero-shot** → [`outputs/2a-adr.md`](outputs/2a-adr.md)
 ```
-Follow prompts/3-write-adr.md
+Follow prompts/2-write-adr.md
 run: a
 context: none
 requirement: <paste R-12 here>
 ```
 
-**Run b: example + context** → [`outputs/3b-adr.md`](outputs/3b-adr.md)
+**Run b: example + context** → [`outputs/2b-adr.md`](outputs/2b-adr.md)
 ```
-Follow prompts/3-write-adr.md
+Follow prompts/2-write-adr.md
 run: b
 context: docs/scenario.md, docs/adr/0001-use-redis-for-cart-storage.md, system/online-boutique/src/checkoutservice/main.go
 requirement: <paste R-12 here>
@@ -31,23 +31,19 @@ requirement: <paste R-12 here>
 |---|---|---|
 | Uses the scenario's numbers (latency, peak, MailFast limits)? | | |
 | Options considered (list them) | | |
-| Does the chosen option meet *every* quality goal in the scenario? | | |
-| Handles "exactly once" loyalty points? How? | | |
-| Handles MailFast's rate limit and slowness? How? | | |
+| Handles "exactly once" loyalty points and MailFast's rate limit? How? | | |
 | Anything invented (a number, tool or fact not in the scenario)? | | |
-| Open questions it raised | | |
 
 ## Take ownership: your final ADR
 
-You are the **Chief Strategist**. Copy `outputs/3b-adr.md` to `docs/adr/0002-<short-title>.md`, and edit it **yourself** until you would sign it. Don't ask the agent to do this part.
+You are the architect. Copy `outputs/2b-adr.md` to `docs/adr/0002-<short-title>.md` and edit it **yourself** until you would sign it. Don't ask the agent to do this part.
 
-- Fix anything wrong or invented.
-- Add what is missing.
+- Fix anything wrong or invented, and add what is missing.
 - Make the final call yourself. You may disagree with the AI.
 
-Then summarise your edits:
+You will defend this ADR in front of a review board in Part B, so make sure you can explain every decision in it.
 
-| # | What you changed | Why |
+| # | What you changed from the AI's draft | Why |
 |---|---|---|
 | 1 | | |
 | 2 | | |

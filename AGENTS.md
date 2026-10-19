@@ -19,7 +19,8 @@ evidence: system/online-boutique/protos/demo.proto
 
 ## Scope of what you read and change
 
-- **Read only what the task allows.** Besides the task file itself, each task names the files or folders you may use as evidence. Do not open or search other files, unless the evidence says `whole workspace`. Comparing what you can conclude from different evidence is part of the exercise.
+- **Read only what the task allows.** Besides the task file itself, each task names the files or folders you may use as evidence. Do not open or search other files. Comparing what you can conclude from different evidence is part of the exercise.
+- **Never read `docs/review-board/`.** Those role cards are for the human review board only.
 - **Write only the output file named in the task.** Create it if it doesn't exist. Never modify anything under `system/`, `prompts/` or `docs/adr/0001-*`, never edit this file, and never edit the student's worksheets in `exercise/*.md`.
 - **Don't run terminal commands.** Everything in this exercise can be done by reading files.
 - When you finish, reply with a short summary: what you wrote, where, and **every file you read**.

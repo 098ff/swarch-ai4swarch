@@ -1,4 +1,4 @@
-# Task 2: Recover an unwritten decision (≈ 15 min)
+# Bonus (optional, take-home): Recover an unwritten decision (≈ 15 min)
 
 > **Lecture link:** T5 (Dhar et al. generate decisions from code and diagrams to reduce *knowledge vaporization*), AICH4.
 > **Question:** when AI explains *why* a system was built this way, how much of the explanation is evidence and how much is a confident guess?
@@ -8,12 +8,12 @@
 Start a new chat or session in your agent and send:
 
 ```
-Follow prompts/2-recover-decision.md
+Follow prompts/bonus-recover-decision.md
 decision: Why do all services communicate synchronously over gRPC, using one shared demo.proto?
 evidence: system/online-boutique/protos/demo.proto, system/online-boutique/src/checkoutservice/main.go, system/online-boutique/src/frontend/main.go
 ```
 
-The agent writes the reconstructed ADR, including its **Claim check** table, to [`outputs/2-recovered-adr.md`](outputs/2-recovered-adr.md).
+The agent writes the reconstructed ADR, including its **Claim check** table, to [`outputs/bonus-recovered-adr.md`](outputs/bonus-recovered-adr.md).
 
 ## Audit the claim check
 
