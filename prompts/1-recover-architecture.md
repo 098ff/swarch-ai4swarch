@@ -17,7 +17,7 @@ Write the result to `exercise/outputs/1<run>-architecture.md` (e.g. `exercise/ou
 2. **Files read.** The exact files you opened.
 3. **Containers table.** One row per container (service or data store): name · technology/language · responsibility · evidence (file path).
 4. **Dependencies table.** One row per runtime dependency: caller → callee · protocol · evidence (file path and the symbol or environment variable). Use the most specific evidence you can find.
-5. **Mermaid diagram.** A `flowchart LR` C4 container diagram that matches the two tables exactly. Include the end user and any external system.
+5. **Mermaid diagram.** A Mermaid `C4Container` diagram (see *Diagrams* in `AGENTS.md`) that matches the two tables exactly: every container is a `Container`, `ContainerDb` or `ContainerQueue` inside a `System_Boundary`, the end user is a `Person`, external systems are `System_Ext`, and every dependency is a `Rel` labelled with its protocol.
 6. **Gaps.** Anything you could not determine from the evidence, and which extra file would settle it.
 
 Do not add containers or dependencies that the evidence doesn't show. If you think one exists but can't prove it, list it under **Gaps**, not in the diagram.

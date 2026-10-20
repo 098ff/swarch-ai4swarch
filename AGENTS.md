@@ -34,10 +34,33 @@ evidence: system/online-boutique/protos/demo.proto
 ## Diagrams
 
 - Write diagrams in Mermaid inside a ```` ```mermaid ```` code block.
-- For C4 container diagrams, use `flowchart LR`:
-  - one node per container (service or data store), labelled `name<br/>[technology]`
-  - every edge labelled with its protocol, e.g. `-->|gRPC|`
-- Keep node IDs simple (letters and digits only) so the diagram renders.
+- For C4 container diagrams, use Mermaid's `C4Container` diagram type:
+  - start with `C4Container` and a `title`
+  - the end user is a `Person(alias, "Label", "Description")`
+  - put the system's own containers inside `System_Boundary(alias, "System name") { … }`
+  - use `Container(alias, "Name", "Technology", "Responsibility")` for services, `ContainerDb(...)` for data stores and `ContainerQueue(...)` for message brokers
+  - anything outside the system is `System_Ext(alias, "Name", "Description")`
+  - every dependency is `Rel(from, to, "Label", "Protocol")`, e.g. `Rel(web, orders, "Places order", "gRPC")`
+  - end with `UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")`
+- Keep aliases simple (letters, digits and underscores) so the diagram renders.
+- Example of the expected shape (a different system, for syntax only):
+
+  ```
+  C4Container
+    title Containers: Example Shop
+    Person(customer, "Customer", "Buys products")
+    System_Boundary(shop, "Example Shop") {
+      Container(web, "Web App", "React", "Shop UI")
+      Container(orders, "Order Service", "Go", "Places orders")
+      ContainerDb(db, "Order DB", "PostgreSQL", "Orders")
+    }
+    System_Ext(pay, "Payment Provider", "Charges cards")
+    Rel(customer, web, "Uses", "HTTPS")
+    Rel(web, orders, "Places order", "gRPC")
+    Rel(orders, db, "Reads/writes", "SQL")
+    Rel(orders, pay, "Charges", "HTTPS")
+    UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
+  ```
 
 ## Architecture decision records
 
