@@ -32,12 +32,9 @@
    | **Claude Code**, **Codex**, **Cursor**, **Cline** ฯลฯ | extension, terminal หรือตัว editor | ขึ้นอยู่กับเครื่องมือ |
 
    การแชตธรรมดาที่เปิดไฟล์ไม่ได้จะใช้ไม่ได้ เพราะ agent ต้องอ่านโค้ดและเขียนผลลัพธ์ลงไฟล์
-3. **สร้างสำเนา repository นี้เป็นของตัวเอง**
-   - กด **Use this template → Create a new repository** แล้วเลือกเป็นแบบ **Public**
-
-     <img src="docs/img/use-this-template.png" alt="ปุ่ม Use this template และเมนู Create a new repository" width="480">
-
-   - clone ลงเครื่อง แล้วเปิดโฟลเดอร์ใน VS Code
+3. **Fork repository นี้**
+   - กดปุ่ม **Fork** (มุมขวาบนของหน้านี้) → **Create fork** fork ของนิสิตจะเป็นแบบ public ซึ่งจำเป็นสำหรับการส่งงาน
+   - clone fork ของตัวเองลงเครื่อง แล้วเปิดโฟลเดอร์ใน VS Code
 4. **ติดตั้ง extension สำหรับ Mermaid ที่แนะนำทั้งสองตัว** เมื่อ VS Code ถาม (หรือค้นหาในหน้าต่าง Extensions)
    - **Markdown Preview Mermaid Support** (`bierner.markdown-mermaid`): แสดงแผนภาพใน Markdown preview
    - **Mermaid** โดย Mermaid (`MermaidChart.vscode-mermaid-chart`): extension ทางการของ Mermaid ใช้ดูตัวอย่างและแก้ไขแผนภาพ และแจ้งข้อผิดพลาดของ syntax
@@ -89,11 +86,11 @@
 | | 5 | [สะท้อนคิดรายบุคคล](exercise/05-reflection.md) | | 0 | ทำหลังคาบได้ |
 | | ★ | [โบนัส: กู้คืนการตัดสินใจที่ไม่ได้บันทึกไว้](exercise/bonus-recover-decision.md) | `prompts/bonus-recover-decision.md` | 1 | ไม่บังคับ ทำที่บ้าน |
 
-> ใบงาน สถานการณ์ และการ์ดบทบาทมีทั้งภาษาอังกฤษและภาษาไทย นิสิตตอบเป็นภาษาไทยหรือภาษาอังกฤษก็ได้ ส่วนข้อความที่ส่งให้ agent ให้ใช้ภาษาอังกฤษตามที่กำหนด
+> ใบงานทุกฉบับมีทั้งภาษาไทย (`*.md`) และภาษาอังกฤษ (`*.en.md`) **ให้กรอกเพียงภาษาเดียว** นิสิตตอบเป็นภาษาไทยหรือภาษาอังกฤษก็ได้ ส่วนข้อความที่ส่งให้ agent ให้ใช้ภาษาอังกฤษตามที่กำหนด
 
 ## การส่งงาน (Assignment 5 ส่งภายในท้ายคาบ)
 
-1. กรอกใบงาน 00–05 ในโฟลเดอร์ `exercise/` รวมถึงบันทึกผลการประชุมคณะกรรมการของกลุ่ม เก็บไฟล์ที่ agent สร้างไว้ใน `exercise/outputs/` และเขียน ADR ฉบับสุดท้ายไว้ที่ `docs/adr/0002-*.md`
+1. กรอกใบงาน 00–05 ในโฟลเดอร์ `exercise/` (ภาษาเดียวต่อใบงาน) รวมถึงบันทึกผลการประชุมคณะกรรมการของกลุ่ม เก็บไฟล์ที่ agent สร้างไว้ใน `exercise/outputs/` และเขียน ADR ฉบับสุดท้ายไว้ที่ `docs/adr/0002-*.md`
 2. commit และ push ขึ้น repository ของตัวเอง
 3. ส่ง URL ของ repository ใน MCV โดยเปิดให้ repository เป็นแบบ public
 
@@ -105,7 +102,7 @@ prompts/                    ไฟล์โจทย์ที่ให้ agent 
 docs/
   adr/template.md           รูปแบบ ADR ที่ใช้ในวิชา
   adr/0001-…                ตัวอย่าง ADR (ใช้ในงานที่ 2)
-  scenario.md               บริบททางธุรกิจสำหรับงานที่ 2
+  scenario.th.md            บริบททางธุรกิจสำหรับงานที่ 2 (ภาษาอังกฤษ: scenario.md)
   review-board/             การ์ดบทบาทสำหรับส่วน B (สำหรับมนุษย์เท่านั้น)
 exercise/                   ใบงาน (นิสิตแก้ไขไฟล์เหล่านี้)
   outputs/                  ไฟล์ที่ AI agent เขียน

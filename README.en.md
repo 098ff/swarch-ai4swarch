@@ -32,12 +32,9 @@ Expected time: about 75 minutes in class.
    | **Claude Code**, **Codex**, **Cursor**, **Cline**, … | Extension, terminal or editor | Depends on the tool |
 
    Plain chat that can't open files won't work, because the agent must read the code and write its results to files.
-3. **Create your own copy of this repository.**
-   - Click **Use this template → Create a new repository**, and choose **Public**.
-
-     <img src="docs/img/use-this-template.png" alt="The Use this template button with Create a new repository selected" width="480">
-
-   - Clone it and open the folder in VS Code.
+3. **Fork this repository.**
+   - Click **Fork** (top right of this page) → **Create fork**. Your fork is public, which you need for submission.
+   - Clone your fork and open the folder in VS Code.
 4. **Install the two recommended Mermaid extensions** when VS Code asks (or search for them in the Extensions view):
    - **Markdown Preview Mermaid Support** (`bierner.markdown-mermaid`): renders the diagrams in the Markdown preview
    - **Mermaid** by Mermaid (`MermaidChart.vscode-mermaid-chart`): the official Mermaid editor; previews and edits diagrams, and highlights syntax errors
@@ -74,7 +71,7 @@ Part A needs about **5 agent requests**. Part B needs none.
 
 ## Rules of the game
 
-- **Log every request** in [`exercise/00-prompt-log.md`](exercise/00-prompt-log.md): which agent and model, what you asked, which files the agent read, and whether it stayed within the evidence you allowed.
+- **Log every request** in [`exercise/00-prompt-log.en.md`](exercise/00-prompt-log.en.md): which agent and model, what you asked, which files the agent read, and whether it stayed within the evidence you allowed.
 - **Check claims against the code.** A claim without a file path as evidence is a guess until you verify it.
 - **Never paste AI output as your own conclusion** without marking it. The worksheets have separate places for *the AI's answer* and *your judgement*.
 
@@ -82,18 +79,18 @@ Part A needs about **5 agent requests**. Part B needs none.
 
 | Part | # | Worksheet | Task file | Agent requests | Time |
 |---|---|---|---|---|---|
-| A | 1 | [Recover the architecture](exercise/01-recover-architecture.md) | `prompts/1-recover-architecture.md` | 2 | 15 min |
-| A | 2 | [Write an ADR for a new requirement](exercise/02-write-adr.md) | `prompts/2-write-adr.md` | 2 | 20 min |
-| A | 3 | [Get the AI's review](exercise/03-ai-review.md) | `prompts/3-review-adr.md` | 1 | 5 min |
-| B | 4 | [Architecture review board](exercise/04-review-board.md) | (role cards in `docs/review-board/`) | 0 | 25 min |
-| | 5 | [Individual reflection](exercise/05-reflection.md) | | 0 | after class is fine |
-| | ★ | [Bonus: recover an unwritten decision](exercise/bonus-recover-decision.md) | `prompts/bonus-recover-decision.md` | 1 | optional, take-home |
+| A | 1 | [Recover the architecture](exercise/01-recover-architecture.en.md) | `prompts/1-recover-architecture.md` | 2 | 15 min |
+| A | 2 | [Write an ADR for a new requirement](exercise/02-write-adr.en.md) | `prompts/2-write-adr.md` | 2 | 20 min |
+| A | 3 | [Get the AI's review](exercise/03-ai-review.en.md) | `prompts/3-review-adr.md` | 1 | 5 min |
+| B | 4 | [Architecture review board](exercise/04-review-board.en.md) | (role cards in `docs/review-board/`) | 0 | 25 min |
+| | 5 | [Individual reflection](exercise/05-reflection.en.md) | | 0 | after class is fine |
+| | ★ | [Bonus: recover an unwritten decision](exercise/bonus-recover-decision.en.md) | `prompts/bonus-recover-decision.md` | 1 | optional, take-home |
 
-> The worksheets, scenario and role cards are in English and Thai. You may answer in Thai or English. Messages to the agent stay in English.
+> Every worksheet has an English version (`*.en.md`) and a Thai version (`*.md`). **Fill in one language version only**; you may answer in Thai or English. Messages to the agent stay in English.
 
 ## Submission (Assignment 5, due by the end of class)
 
-1. Fill in worksheets 00–05 in `exercise/`, including your group's review-board record. Keep the agent's files in `exercise/outputs/`, and write your final ADR at `docs/adr/0002-*.md`.
+1. Fill in worksheets 00–05 in `exercise/` (one language version each), including your group's review-board record. Keep the agent's files in `exercise/outputs/`, and write your final ADR at `docs/adr/0002-*.md`.
 2. Commit and push to your repository.
 3. Submit the repository URL on MCV. Make sure the repository is public.
 
@@ -105,7 +102,7 @@ prompts/                    the task files you ask the agent to follow
 docs/
   adr/template.md           the ADR format we use
   adr/0001-…                an example ADR (used in Task 2)
-  scenario.md               business context for Task 2
+  scenario.md               business context for Task 2 (Thai: scenario.th.md)
   review-board/             role cards for Part B (humans only)
 exercise/                   your worksheets (you edit these)
   outputs/                  files written by the AI agent
