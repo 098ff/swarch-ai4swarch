@@ -15,6 +15,8 @@ decision: Why do all services communicate synchronously over gRPC, using one sha
 evidence: system/online-boutique/protos/demo.proto, system/online-boutique/src/checkoutservice/main.go, system/online-boutique/src/frontend/main.go
 ```
 
+Want the ADR in Thai? Add a line `language: Thai`.
+
 The agent writes the reconstructed ADR, including its **Claim check** table, to [`outputs/bonus-recovered-adr.md`](outputs/bonus-recovered-adr.md).
 
 ## Audit the claim check

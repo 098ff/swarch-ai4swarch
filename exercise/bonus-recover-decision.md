@@ -13,7 +13,10 @@
 Follow prompts/bonus-recover-decision.md
 decision: Why do all services communicate synchronously over gRPC, using one shared demo.proto?
 evidence: system/online-boutique/protos/demo.proto, system/online-boutique/src/checkoutservice/main.go, system/online-boutique/src/frontend/main.go
+language: Thai
 ```
+
+บรรทัด `language: Thai` ทำให้ ADR ที่กู้คืนเป็นภาษาไทย หากต้องการภาษาอังกฤษให้ลบบรรทัดนี้
 
 agent จะเขียน ADR ที่กู้คืนมา พร้อมตาราง **Claim check** ไว้ที่ [`outputs/bonus-recovered-adr.md`](outputs/bonus-recovered-adr.md)
 

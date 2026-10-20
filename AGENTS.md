@@ -25,6 +25,14 @@ evidence: system/online-boutique/protos/demo.proto
 - **Don't run terminal commands.** Everything in this exercise can be done by reading files.
 - When you finish, reply with a short summary: what you wrote, where, and **every file you read**.
 
+## Output language
+
+Some tasks accept an optional input `language`: `Thai` or `English` (default: English).
+
+- With `language: Thai`, write all prose in Thai: sentences, explanations, and the text inside table cells. Your final summary reply is in Thai too.
+- Keep these in English, so outputs stay comparable across students: the ADR template headings and any section names the task gives (e.g. **Claim check**, **Open questions**), status values (`Proposed`, `Reconstructed`), the finding types (`Risk`, `Non-risk`, `Sensitivity point`, `Trade-off point`) and claim types (`Evidenced`, `Inferred`, `Assumption`), file paths, code, service and technology names (e.g. `checkoutservice`, gRPC, RabbitMQ), and Mermaid diagram code.
+- Established technical terms may stay in English inside Thai sentences (e.g. latency, message broker, trade-off), as is normal in Thai technical writing.
+
 ## How to answer
 
 - **Evidence first.** Support every architectural claim (a service, a dependency, a protocol, a data store, a rationale) with the file path, and the line or symbol where possible, that shows it. Example: `system/online-boutique/kubernetes-manifests/frontend.yaml (CART_SERVICE_ADDR)`.

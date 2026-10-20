@@ -25,6 +25,8 @@ context: docs/scenario.md, docs/adr/0001-use-redis-for-cart-storage.md, system/o
 requirement: <paste R-12 here>
 ```
 
+> Want the ADR in Thai? Add a line `language: Thai` to both messages (template headings and technical names stay in English). **Use the same language in Run a and Run b**, so the comparison is fair.
+
 > In Run a, check that the agent really read nothing besides the template. If it opened `docs/scenario.md` anyway, note that in your prompt log, because it changes the comparison.
 
 ## Compare a and b

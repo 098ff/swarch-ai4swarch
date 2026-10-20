@@ -4,6 +4,7 @@
 
 - `decision`: the decision to reconstruct
 - `evidence`: the files you may read
+- `language` (optional): `Thai` or `English` (default). See *Output language* in `AGENTS.md`.
 
 ## Instructions
 

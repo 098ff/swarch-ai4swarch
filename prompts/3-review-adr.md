@@ -3,6 +3,7 @@
 ## Inputs (from the student's message)
 
 - `adr`: path to the ADR to review
+- `language` (optional): `Thai` or `English` (default). See *Output language* in `AGENTS.md`.
 
 ## Instructions
 

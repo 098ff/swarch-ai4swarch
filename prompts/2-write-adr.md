@@ -5,6 +5,7 @@
 - `run`: `a` (zero-shot) or `b` (with context)
 - `context`: `none`, or the files you may read
 - `requirement`: the requirement text
+- `language` (optional): `Thai` or `English` (default). See *Output language* in `AGENTS.md`.
 
 ## Instructions
 

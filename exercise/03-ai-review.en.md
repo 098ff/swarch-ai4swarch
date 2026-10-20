@@ -11,6 +11,8 @@ Follow prompts/3-review-adr.md
 adr: docs/adr/0002-<your-title>.md
 ```
 
+Want the review in Thai? Add a line `language: Thai` (finding types such as Risk and Trade-off point stay in English).
+
 The agent writes a one-page ATAM-style review to [`outputs/3-review.md`](outputs/3-review.md). It must not edit your ADR; if it does, reject or undo the change.
 
 **Don't act on the review yet.** Read it, commit it, and bring it to the review board in Part B. The board will decide which of its findings matter.

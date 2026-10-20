@@ -9,7 +9,10 @@
 ```
 Follow prompts/3-review-adr.md
 adr: docs/adr/0002-<your-title>.md
+language: Thai
 ```
+
+บรรทัด `language: Thai` ทำให้ผลรีวิวเป็นภาษาไทย (ประเภทของข้อค้นพบ เช่น Risk, Trade-off point ยังคงเป็นภาษาอังกฤษ) หากต้องการภาษาอังกฤษให้ลบบรรทัดนี้
 
 agent จะเขียนผลรีวิวแบบ ATAM ความยาวหนึ่งหน้าไว้ที่ [`outputs/3-review.md`](outputs/3-review.md) agent ต้องไม่แก้ไข ADR ของนิสิต หากแก้ไข ให้ปฏิเสธหรือ undo การเปลี่ยนแปลงนั้น
 
