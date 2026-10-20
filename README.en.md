@@ -4,7 +4,7 @@
 
 **2110521 Software Architecture · Week 12 · Tutorial 5 / Assignment 5**
 
-You'll use **an AI coding agent in VS Code** as an architecture assistant on a real microservices system, [Online Boutique](system/online-boutique/). Use whichever agent you have: GitHub Copilot, Gemini, Claude, Codex, Cursor or another. Then you'll judge how good its work is. The goal is not to get the AI to do the assignment. The goal is to find out **where AI helps an architect and where it can't be trusted**, which is the main finding of this week's lecture.
+You'll use **an AI coding agent in VS Code** as an architecture assistant on a real microservices system, [Online Boutique](https://github.com/GoogleCloudPlatform/microservices-demo). Use whichever agent you have: GitHub Copilot, Gemini, Claude, Codex, Cursor or another. Then you'll judge how good its work is. The goal is not to get the AI to do the assignment. The goal is to find out **where AI helps an architect and where it can't be trusted**, which is the main finding of this week's lecture.
 
 The exercise has two parts:
 
