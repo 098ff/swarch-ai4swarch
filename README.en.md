@@ -6,6 +6,8 @@
 
 You'll use **an AI coding agent in VS Code** as an architecture assistant on a real microservices system, [Online Boutique](https://github.com/GoogleCloudPlatform/microservices-demo). Use whichever agent you have: GitHub Copilot, Gemini, Claude, Codex, Cursor or another. Then you'll judge how good its work is. The goal is not to get the AI to do the assignment. The goal is to find out **where AI helps an architect and where it can't be trusted**, which is the main finding of this week's lecture.
 
+> ⚠️ **Don't open the original Online Boutique repository until you have finished Task 1.** Its README contains the official architecture diagram, which is exactly what you will recover and verify yourself. Everything you need is in this repository's `system/online-boutique/` folder. You may compare with the original diagram after you submit.
+
 The exercise has two parts:
 
 - **Part A: hands-on with an AI agent (approximately 40 min, individual)**

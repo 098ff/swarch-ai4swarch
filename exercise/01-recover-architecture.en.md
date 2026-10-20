@@ -5,6 +5,8 @@
 > **Lecture link:** T7 architecture recovery, AICH2 (traceability), AICH3 (context), and the JSS finding that 93% of studies never validate AI output.
 > **Question:** how much of an architecture can AI recover, and how much does it depend on the evidence it reads?
 
+**Don't look at the original Online Boutique repository during this task:** its README shows the architecture diagram you are recovering.
+
 For each run, start a **new chat or session** in your agent and send the message below. The agent follows [`prompts/1-recover-architecture.md`](../prompts/1-recover-architecture.md) and writes its result to `exercise/outputs/1<run>-architecture.md`.
 
 **Run A: interfaces only**
