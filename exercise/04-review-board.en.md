@@ -1,6 +1,6 @@
 **Language:** [ภาษาไทย](04-review-board.md) | English
 
-# Part B: Architecture review board (≈ 25 min, groups of 4)
+# Part B: Architecture review board (approximately 25 min, groups of 4)
 
 > **Lecture link:** AICH4 (reviews need domain expertise; *plausible ≠ appropriate*), Pillar 5 (AI as Chief Analyst, humans as Chief Strategist), JSS (85% of studies keep a human in the loop).
 > **Question:** what does a human review board catch that the AI's review missed, and why?

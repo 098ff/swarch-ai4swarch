@@ -1,6 +1,6 @@
 **Language:** [ภาษาไทย](03-ai-review.md) | English
 
-# Task 3: Get the AI's review (≈ 5 min)
+# Task 3: Get the AI's review (approximately 5 min)
 
 > **Lecture link:** P5 human–AI collaboration: the AI as *Chief Analyst*. A 2026 study found LLMs often matched or beat student teams at spotting ATAM risks and trade-offs ([arXiv 2603.28914](https://arxiv.org/abs/2603.28914)). Part B tests that claim.
 

@@ -1,6 +1,6 @@
 **Language:** [ภาษาไทย](02-write-adr.md) | English
 
-# Task 2: Write an ADR for a new requirement (≈ 20 min)
+# Task 2: Write an ADR for a new requirement (approximately 20 min)
 
 > **Lecture link:** T3 (GPT-4 zero-shot was coherent but *less complete than humans*; few-shot closed much of the gap), AICH3 (context), W10 (message brokers).
 > **Question:** how much does an AI-written ADR improve when you give it an example and the real context?

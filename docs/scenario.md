@@ -21,9 +21,9 @@
 
 | Topic | Fact |
 |---|---|
-| Checkout latency | p95 of `PlaceOrder` must stay **≤ 500 ms** (today ≈ 300 ms) |
+| Checkout latency | p95 of `PlaceOrder` must stay **≤ 500 ms** (today approximately 300 ms) |
 | Peak load | **200 orders/s** during the 11.11 sale |
-| MailFast | p95 **1.5 s**, p99 **8 s**; fails ≈ **0.5 %** of calls; rate limit **50 emails/s** |
+| MailFast | p95 **1.5 s**, p99 **8 s**; fails approximately **0.5 %** of calls; rate limit **50 emails/s** |
 | Loyalty points | must be awarded **within 1 minute** of the order, **exactly once** (no double points) |
 | Availability | an order must **never fail** because email, loyalty or analytics is down |
 | Team | 4 developers; strong in Go and gRPC; two have used **RabbitMQ** before |

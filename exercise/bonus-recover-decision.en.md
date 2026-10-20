@@ -1,6 +1,6 @@
 **Language:** [ภาษาไทย](bonus-recover-decision.md) | English
 
-# Bonus (optional, take-home): Recover an unwritten decision (≈ 15 min)
+# Bonus (optional, take-home): Recover an unwritten decision (approximately 15 min)
 
 > **Lecture link:** T5 (Dhar et al. generate decisions from code and diagrams to reduce *knowledge vaporization*), AICH4.
 > **Question:** when AI explains *why* a system was built this way, how much of the explanation is evidence and how much is a confident guess?

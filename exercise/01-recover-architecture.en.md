@@ -1,6 +1,6 @@
 **Language:** [ภาษาไทย](01-recover-architecture.md) | English
 
-# Task 1: Recover the architecture (≈ 15 min)
+# Task 1: Recover the architecture (approximately 15 min)
 
 > **Lecture link:** T7 architecture recovery, AICH2 (traceability), AICH3 (context), and the JSS finding that 93% of studies never validate AI output.
 > **Question:** how much of an architecture can AI recover, and how much does it depend on the evidence it reads?

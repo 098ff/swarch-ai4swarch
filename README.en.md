@@ -8,18 +8,18 @@ You'll use **an AI coding agent in VS Code** as an architecture assistant on a r
 
 The exercise has two parts:
 
-- **Part A: hands-on with an AI agent (≈ 40 min, individual)**
+- **Part A: hands-on with an AI agent (approximately 40 min, individual)**
   1. **Recover** the architecture from the code (lecture topic T7: architecture recovery)
   2. **Write an ADR** for a new requirement with the AI, with and without context, then make it your own (T3: ADR generation)
   3. **Get the AI's review** of your ADR, ATAM-style (P5: AI as Chief Analyst)
-- **Part B: architecture review board role-play (≈ 25 min, groups of 4)**
+- **Part B: architecture review board role-play (approximately 25 min, groups of 4)**
   - One group member's ADR goes to a review board. The **architect** defends it, the **AI analyst** presents the AI's review, and a **product owner** and an **SRE** bring knowledge the AI never saw. The board decides, and records which concerns the AI caught and which it missed (AICH4: *plausible ≠ appropriate*).
 
 Expected time: about 75 minutes in class.
 
 ---
 
-## Before class: set up (≈ 15 minutes, do it early)
+## Before class: set up (approximately 15 minutes, do it early)
 
 1. **Install [VS Code](https://code.visualstudio.com/).**
 2. **Get an AI agent that can read and write files in your workspace.** Any of these works:
