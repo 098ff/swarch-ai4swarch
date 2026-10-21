@@ -23,7 +23,7 @@ Expected time: about 75 minutes in class.
 
 ## Before class: set up (approximately 15 minutes, do it early)
 
-1. **Install [VS Code](https://code.visualstudio.com/).**
+1. **Install [VS Code](https://code.visualstudio.com/).** No local VS Code? Skip this step and use GitHub Codespaces instead (see step 3).
 2. **Get an AI agent that can read and write files in your workspace.** Any of these works:
 
    | Agent | Where it runs in VS Code | Free option for students |
@@ -37,6 +37,9 @@ Expected time: about 75 minutes in class.
 3. **Fork this repository.**
    - Click **Fork** (top right of this page) → **Create fork**. Your fork is public, which you need for submission.
    - Clone your fork and open the folder in VS Code.
+   - **No local VS Code?** On your fork, click **Code** → **Codespaces** → **Create codespace on main**. This opens VS Code in the browser with your fork already loaded, and GitHub Copilot Chat (Agent mode) is ready to use. Do the remaining steps inside the codespace. Personal GitHub accounts get free Codespaces hours each month; stop the codespace when you finish.
+
+     <img src="docs/img/codespaces.png" alt="The exercise repository open in GitHub Codespaces, with the README preview, the Copilot Chat panel in Agent mode, and a terminal" width="560">
 4. **Install the two recommended Mermaid extensions** when VS Code asks (or search for them in the Extensions view):
    - **Markdown Preview Mermaid Support** (`bierner.markdown-mermaid`): renders the diagrams in the Markdown preview
    - **Mermaid** by Mermaid (`MermaidChart.vscode-mermaid-chart`): the official Mermaid editor; previews and edits diagrams, and highlights syntax errors

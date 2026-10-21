@@ -23,7 +23,7 @@
 
 ## ก่อนเข้าเรียน: เตรียมเครื่อง (ประมาณ 15 นาที ควรทำล่วงหน้า)
 
-1. **ติดตั้ง [VS Code](https://code.visualstudio.com/)**
+1. **ติดตั้ง [VS Code](https://code.visualstudio.com/)** หากไม่มี VS Code ในเครื่อง ให้ข้ามขั้นตอนนี้และใช้ GitHub Codespaces แทน (ดูขั้นตอนที่ 3)
 2. **เตรียม AI agent ที่อ่านและเขียนไฟล์ใน workspace ได้** ใช้ตัวใดตัวหนึ่งต่อไปนี้ก็ได้
 
    | Agent | ใช้งานที่ไหนใน VS Code | ตัวเลือกฟรีสำหรับนิสิต |
@@ -37,6 +37,9 @@
 3. **Fork repository นี้**
    - กดปุ่ม **Fork** (มุมขวาบนของหน้านี้) → **Create fork** fork ของนิสิตจะเป็นแบบ public ซึ่งจำเป็นสำหรับการส่งงาน
    - clone fork ของตัวเองลงเครื่อง แล้วเปิดโฟลเดอร์ใน VS Code
+   - **ไม่มี VS Code ในเครื่อง?** ที่หน้า fork ของตัวเอง กด **Code** → **Codespaces** → **Create codespace on main** ระบบจะเปิด VS Code บนเบราว์เซอร์พร้อม fork ของนิสิต และใช้ GitHub Copilot Chat (โหมด Agent) ได้ทันที ให้ทำขั้นตอนที่เหลือใน codespace นี้ บัญชี GitHub ส่วนตัวมีชั่วโมงใช้งาน Codespaces ฟรีทุกเดือน เมื่อทำเสร็จให้หยุด (stop) codespace
+
+     <img src="docs/img/codespaces.png" alt="repository ของแบบฝึกหัดที่เปิดใน GitHub Codespaces แสดง README, แผง Copilot Chat ในโหมด Agent และ terminal" width="560">
 4. **ติดตั้ง extension สำหรับ Mermaid ที่แนะนำทั้งสองตัว** เมื่อ VS Code ถาม (หรือค้นหาในหน้าต่าง Extensions)
    - **Markdown Preview Mermaid Support** (`bierner.markdown-mermaid`): แสดงแผนภาพใน Markdown preview
    - **Mermaid** โดย Mermaid (`MermaidChart.vscode-mermaid-chart`): extension ทางการของ Mermaid ใช้ดูตัวอย่างและแก้ไขแผนภาพ และแจ้งข้อผิดพลาดของ syntax
