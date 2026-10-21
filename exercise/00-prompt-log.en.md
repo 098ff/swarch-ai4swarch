@@ -11,8 +11,8 @@ Log every request you send to the agent. "Files the agent read" is what the agen
 
 | # | Task / run | Agent + model | Message sent (short) | Files the agent read | Stayed within the allowed evidence? | Useful? (1–5) | Notes |
 |---|---|---|---|---|---|---|---|
-| 1 | 1-A | | `prompts/1-…` run A | | | | |
-| 2 | 1-B | | `prompts/1-…` run B | | | | |
+| 1 | 1-A | GitHub Copilot (Agent mode, Auto) | `Follow prompts/1-…` run: A, evidence: `demo.proto` | `AGENTS.md`, `1-recover-architecture.md`, `demo.proto`, `1A-architecture.md` | Yes (read only evidence and prompt files, no source code) | 5 | Extracted 9 service contracts accurately; avoided hallucinating runtime dependencies from proto interface |
+| 2 | 1-B | GitHub Copilot (Agent mode, Auto: gpt-6-luna) | `Follow prompts/1-…` run: B, evidence: `demo.proto`, `kubernetes-manifests/` | `AGENTS.md`, `1-recover-architecture.md`, `demo.proto`, `kubernetes-manifests/*.yaml` | Yes (read only demo.proto and k8s manifests as allowed) | 4 | Recovered 12 containers and complete runtime dependencies, but hung at mermaid validation |
 | 3 | 2-a | | `prompts/2-…` run a | | | | |
 | 4 | 2-b | | `prompts/2-…` run b | | | | |
 | 5 | 3 | | `prompts/3-…` | | | | |
