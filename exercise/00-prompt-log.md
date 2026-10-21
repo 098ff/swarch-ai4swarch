@@ -2,10 +2,10 @@
 
 # บันทึกการใช้ prompt
 
-**ชื่อ / รหัสนิสิต:**
-**agent ที่ใช้:** เช่น GitHub Copilot (Agent mode), Gemini Code Assist, Gemini CLI, Claude Code, Codex, Cursor, Cline: …
-**โมเดล:** …
-**แพ็กเกจที่ใช้:** เช่น Copilot Student, Copilot Free, Gemini รุ่นฟรี: …
+**ชื่อ / รหัสนิสิต:** ชนัดดา คนชม / 6631305321 (Chanatda Khonchom)
+**agent ที่ใช้:** GitHub Copilot (Agent mode in VS Code)
+**โมเดล:** Auto (gpt-4o / gpt-6-luna)
+**แพ็กเกจที่ใช้:** Copilot Student
 
 บันทึกทุกคำขอที่ส่งให้ agent ช่อง "ไฟล์ที่ agent อ่าน" คือไฟล์ที่ agent รายงาน หรือที่นิสิตเห็นว่า agent เปิด
 

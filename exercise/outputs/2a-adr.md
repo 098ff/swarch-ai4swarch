@@ -1,4 +1,4 @@
-Agent: AI assistant using Copilot SDK in VS Code; model: not disclosed.
+Agent: AI assistant using Copilot SDK in VS Code; Model: not disclosed.
 
 # ADR-0002: Use event-driven post-order processing
 
@@ -8,64 +8,60 @@ Agent: AI assistant using Copilot SDK in VS Code; model: not disclosed.
 
 ## Context and problem
 
-หลังจากวางคำสั่งซื้อสำเร็จ ระบบต้องดำเนินการหลังการสั่งซื้อสามอย่าง:
+After an order is placed, Online Boutique must execute three post-order actions:
 
-1. ส่งอีเมลยืนยันคำสั่งซื้อผ่าน MailFast ซึ่งเป็นผู้ให้บริการภายนอกรายใหม่และมาแทน logic ของ mock `emailservice`
-2. มอบ loyalty points ผ่าน `loyaltyservice` ใหม่
-3. บันทึก analytics event ชื่อ “order placed” ให้ทีมการตลาด
+1. Send an order confirmation email via MailFast, a new external email provider replacing the mock `emailservice` logic.
+2. Award loyalty points through a new `loyaltyservice` (to be built).
+3. Record an "order placed" analytics event for the marketing team.
 
-ปีหน้าคาดว่าจะมี post-order actions เพิ่ม เช่น SMS, fraud scoring และการอัปเดต recommendations จึงต้องเลือกรูปแบบที่รองรับการเพิ่มผู้รับงานโดยไม่ทำให้การวางคำสั่งซื้อผูกติดกับการทำงานของแต่ละ action มากเกินไป ไม่มีข้อมูลเกี่ยวกับ protocol, ปริมาณงาน, latency target, SLA หรือกลไกส่งข้อความที่กำหนดไว้
+Marketing expects more post-order actions next year (SMS, fraud scoring, recommendations update). We must choose an architecture that accommodates future actions without tightly coupling the checkout flow to individual downstream operations. No data regarding protocol, throughput, latency targets, SLAs, or messaging mechanisms was provided.
 
 ## Decision drivers
 
-- รองรับการเพิ่ม post-order actions ได้โดยกระทบ flow การวางคำสั่งซื้อน้อย (modifiability)
-- ลดการพึ่งพาความพร้อมใช้งานและ latency ของบริการปลายทางต่อการตอบกลับการวางคำสั่งซื้อ (availability, performance)
-- ลดความเสี่ยงที่ action ใด action หนึ่งทำให้ action อื่นไม่ได้รับการประมวลผล (availability, reliability)
-- ควบคุมความซับซ้อนและต้นทุนของโครงสร้างพื้นฐานใหม่ (cost, operability)
+- Support adding future post-order actions with minimal impact on the checkout flow (modifiability).
+- Minimize dependency on downstream availability and latency for order placement responses (availability, performance).
+- Prevent failure in one action from blocking other actions (availability, reliability).
+- Control infrastructure complexity and operational overhead (cost, operability).
 
 ## Considered options
 
-1. ให้บริการที่วางคำสั่งซื้อเรียก MailFast, `loyaltyservice` และ analytics โดยตรงแบบ synchronous
-2. ให้บริการที่วางคำสั่งซื้อประกาศเหตุการณ์ `OrderPlaced` ผ่าน durable event transport แล้วให้ consumer แยกกันดำเนินการส่งอีเมล มอบคะแนน และบันทึก analytics
-3. เพิ่ม post-order orchestrator หนึ่งตัวเพื่อเรียกบริการและระบบภายนอกทั้งหมด โดยบริการที่วางคำสั่งซื้อส่งงานให้ orchestrator
+1. Synchronous direct calls to MailFast, `loyaltyservice`, and analytics from the order placement service.
+2. Publish an `OrderPlaced` event via a durable event transport, processed by decoupled consumers.
+3. Introduce a post-order orchestrator service that coordinates downstream calls.
 
 ### Pros and cons of the options
 
 | Option | Pros | Cons |
 |---|---|---|
-| 1. เรียกปลายทางโดยตรง | รูปแบบตรงไปตรงมา; flow และผลลัพธ์ของแต่ละการเรียกมองเห็นได้ชัด | latency และความพร้อมใช้งานของการวางคำสั่งซื้อผูกกับทุกปลายทาง; การเพิ่ม action ทำให้บริการที่วางคำสั่งซื้อมีการเชื่อมต่อและเงื่อนไขเพิ่มขึ้น |
-| 2. ประกาศเหตุการณ์และแยก consumer | แยกการวางคำสั่งซื้อออกจากการทำงานหลังคำสั่งซื้อ; เพิ่ม consumer สำหรับ SMS, fraud scoring หรือ recommendations ได้; ความล้มเหลวของ consumer หนึ่งไม่จำเป็นต้องหยุด consumer อื่น | ต้องมีและดูแล event transport; การประมวลผลอาจล่าช้าหรือเกิดซ้ำ; ต้องจัดการการส่งเหตุการณ์ให้ทนทานและทำให้ consumer ทำงานซ้ำได้อย่างปลอดภัย |
-| 3. ใช้ post-order orchestrator | รวมการประสานงานและนโยบาย retry ไว้ที่เดียว; บริการที่วางคำสั่งซื้อไม่ต้องรู้จักปลายทางทั้งหมด | orchestrator กลายเป็นจุดรวมความซับซ้อนและอาจเป็นคอขวด; การเพิ่ม action ยังต้องเปลี่ยนหรือกำหนดค่า orchestration; เพิ่มบริการที่ต้องพัฒนาและดูแล |
+| 1. Direct synchronous calls | Simple and straightforward; clear execution flow and immediate feedback. | Checkout latency and availability become tightly coupled to all downstream services; adding actions adds synchronous dependencies. |
+| 2. Event publishing with decoupled consumers | Decouples order placement from post-order workflows; easily accommodates new consumers; downstream outages do not block checkout. | Requires managing durable event transport; introduces eventual consistency and potential duplicate delivery; requires idempotency. |
+| 3. Post-order orchestrator | Centralizes coordination and retry policies; order service does not need to know all endpoints. | Orchestrator becomes a single point of complexity/bottleneck; adding actions still requires updating orchestrator configuration. |
 
 ## Decision
 
-เลือก Option 2: เมื่อวางคำสั่งซื้อสำเร็จ ให้เผยแพร่เหตุการณ์ `OrderPlaced` ผ่าน durable event transport และให้ consumer แยกกันจัดการการส่งอีเมลผ่าน MailFast, การมอบคะแนนโดย `loyaltyservice` และการส่ง analytics event ให้ทีมการตลาด การแทน mock `emailservice` ให้ทำใน consumer สำหรับอีเมล ไม่ให้เป็นการเรียก MailFast แบบ synchronous ที่ทำให้การวางคำสั่งซื้อต้องรอผู้ให้บริการภายนอก
+Choose **Option 2**: Upon successful order placement, publish an `OrderPlaced` event via a durable event transport, allowing independent consumers to handle MailFast email delivery, loyalty point allocation, and analytics dispatch. Replacing mock `emailservice` logic will occur inside the email consumer rather than via synchronous calls from checkout.
 
-รูปแบบนี้รองรับการเพิ่ม consumer ใหม่ในอนาคตโดยไม่เพิ่มการเรียกปลายทางแต่ละรายลงใน flow หลัก อย่างไรก็ตาม ชนิด event transport, schema ของเหตุการณ์ และกลไกป้องกันเหตุการณ์สูญหายยังไม่ถูกกำหนดใน ADR นี้
+The specific event transport technology, event schema, and reliable publishing mechanisms are not finalized in this initial proposal.
 
 ## Consequences
 
-- **Positive:** สามารถเพิ่ม post-order consumer ได้โดยไม่ต้องเพิ่มการเชื่อมต่อปลายทางแต่ละรายการในบริการที่วางคำสั่งซื้อ (modifiability)
-- **Positive:** ความล่าช้าหรือการหยุดทำงานของ MailFast หรือ consumer อื่นไม่จำเป็นต้องเพิ่ม latency หรือทำให้การวางคำสั่งซื้อล้มเหลว (availability, performance)
-- **Negative:** ต้องจัดหาและดูแล event transport รวมถึงการติดตาม backlog และความล้มเหลว (cost, operability)
-- **Negative:** การดำเนินการหลังคำสั่งซื้ออาจเสร็จหลังจากผู้ใช้ได้รับผลการวางคำสั่งซื้อแล้ว และการส่งซ้ำอาจเกิดขึ้นได้; consumer ต้องรองรับการประมวลผลซ้ำโดยไม่ส่งอีเมลหรือมอบคะแนนซ้ำ (consistency, reliability)
-- **Risks and mitigations:** หากบันทึกคำสั่งซื้อสำเร็จแต่เผยแพร่ `OrderPlaced` ไม่สำเร็จ อาจไม่มี post-order action ทำงาน; ต้องกำหนดกลไกเผยแพร่ที่ทนทานต่อความล้มเหลวและทดสอบกรณีดังกล่าวก่อนใช้งานจริง (reliability) ทั้งนี้ยังไม่ได้เลือกกลไกเฉพาะ
+- **Positive:** New consumers can be added without modifying order placement logic (modifiability).
+- **Positive:** Downstream latency or outages in MailFast/loyalty/analytics do not impact order placement latency or availability (availability, performance).
+- **Negative:** Requires provisioning, monitoring, and operating an event transport and backlog queues (cost, operability).
+- **Negative:** Eventual consistency; post-order processing occurs asynchronously; consumers must handle duplicate events idempotently (consistency, reliability).
+- **Risks and mitigations:** Risk of message loss if order succeeds but event publication fails; requires a resilient publishing mechanism (reliability).
 
 ## Validation
 
-- ทดสอบว่าการวางคำสั่งซื้อที่สำเร็จสร้างเหตุการณ์ `OrderPlaced` และผู้รับทั้งสามดำเนินการครบ: MailFast ได้รับคำขอส่งอีเมล, `loyaltyservice` มอบคะแนน และ analytics ได้รับเหตุการณ์สำหรับทีมการตลาด
-- ทดสอบว่าความล้มเหลวหรือความล่าช้าของ consumer หนึ่งไม่ขัดขวางการประมวลผลของ consumer อื่น และไม่ทำให้การวางคำสั่งซื้อล้มเหลว
-- ทดสอบการส่งเหตุการณ์ซ้ำและยืนยันว่าไม่มีการส่งอีเมลยืนยันหรือมอบคะแนนซ้ำ
-- ทดสอบกรณีล้มเหลวระหว่างการบันทึกคำสั่งซื้อกับการเผยแพร่เหตุการณ์ เพื่อยืนยันว่าเหตุการณ์ไม่สูญหาย
-- กำหนดและตรวจวัด latency ที่ผู้ใช้เห็น, เวลาจน post-order actions เสร็จ, อัตราความล้มเหลว และ backlog; เกณฑ์ตัวเลขต้องตกลงก่อนนำขึ้นใช้งาน เนื่องจาก requirement ไม่ได้ระบุเป้าหมายไว้
+- Verify that order placement generates `OrderPlaced` events and all consumers execute their respective tasks.
+- Verify that downstream consumer failures or delays do not block checkout response times.
+- Test duplicate event delivery to ensure no duplicate emails or loyalty points are awarded.
+- Measure checkout latency, consumer backlog, and end-to-end completion times once SLA targets are agreed upon.
 
 ## Open questions
 
-- บริการใดเป็นผู้รับผิดชอบการวางคำสั่งซื้อ และจะรับประกันอย่างไรว่าการเผยแพร่เหตุการณ์สัมพันธ์กับการบันทึกคำสั่งซื้อสำเร็จ?
-- จะใช้ event transport ใด และต้องการระดับความทนทาน, retention และการกู้คืนเหตุการณ์แบบใด?
-- ต้องมีข้อมูลและ schema ใดใน `OrderPlaced` โดยเฉพาะข้อมูลลูกค้าที่ MailFast และทีมการตลาดจำเป็นต้องใช้?
-- MailFast มี API, authentication, rate limits และข้อกำหนด retry หรือไม่?
-- กติกาการมอบคะแนนอยู่ที่ `loyaltyservice` อย่างไร และการส่งซ้ำจะป้องกันการมอบคะแนนซ้ำด้วยกลไกใด?
-- อนุญาตให้ยืนยันคำสั่งซื้อก่อนที่อีเมล คะแนน และ analytics จะเสร็จหรือไม่ และยอมรับความล่าช้าได้นานเท่าใด?
-- ต้องกำหนด SLA, throughput, latency targets, alerting และนโยบาย retry/dead-letter อย่างไร?
-- ใครเป็น deciders และผู้รับผิดชอบการดูแล event transport กับ consumer แต่ละตัว?
+- Which datastore/mechanism will guarantee atomic event publication with order persistence?
+- Which specific event broker should be chosen (Kafka, RabbitMQ, etc.)?
+- What is the payload schema for `OrderPlaced`?
+- What are MailFast's exact API contracts, authentication requirements, and rate limits?
+- How should idempotency be enforced in `loyaltyservice`?

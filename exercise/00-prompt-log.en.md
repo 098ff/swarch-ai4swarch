@@ -2,10 +2,10 @@
 
 # Prompt log
 
-**Name / Student ID:**
-**Agent(s) used:** e.g. GitHub Copilot (Agent mode), Gemini Code Assist, Gemini CLI, Claude Code, Codex, Cursor, Cline: …
-**Model(s):** …
-**Plan / tier:** e.g. Copilot Student, Copilot Free, Gemini free tier: …
+**Name / Student ID:** Chanatda Khonchom / 6631305321 (ชนัดดา คนชม)
+**Agent(s) used:** GitHub Copilot (Agent mode in VS Code)
+**Model(s):** Auto (gpt-4o / gpt-6-luna)
+**Plan / tier:** Copilot Student
 
 Log every request you send to the agent. "Files the agent read" is what the agent reported, or what you saw it open.
 
