@@ -1,1 +1,19 @@
 .DS_Store
+
+# Java / Gradle
+.gradle/
+build/
+
+# Node.js
+node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+
+# .NET / C#
+bin/
+obj/
+
