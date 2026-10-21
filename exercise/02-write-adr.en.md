@@ -33,10 +33,10 @@ requirement: <paste R-12 here>
 
 | Criterion | Run a | Run b |
 |---|---|---|
-| Uses the scenario's numbers (latency, peak, MailFast limits)? | | |
-| Options considered (list them) | | |
-| Handles "exactly once" loyalty points and MailFast's rate limit? How? | | |
-| Anything invented (a number, tool or fact not in the scenario)? | | |
+| Uses the scenario's numbers (latency, peak, MailFast limits)? | **Did not use any numbers.** Explicitly noted that there was no data on protocols, workload, latency targets, SLA, or messaging mechanism, and relegated them to Open Questions. | **Used accurately and comprehensively.** Directly cited checkout p95 latency budget ≤ 500 ms (current ~300 ms), 11.11 peak load of 200 orders/s, MailFast characteristics (p95 1.5s, p99 8s, failure 0.5%, rate limit 50 emails/s), and loyalty SLA within 1 minute. |
+| Options considered (list them) | 1. Direct synchronous calls to external endpoints<br>2. Generic durable event-driven architecture with decoupled consumers<br>3. Centralized post-order orchestrator | 1. Direct synchronous calls from `checkoutservice`<br>2. Publish post-order events via **RabbitMQ** with dedicated consumers (tailored to team skills)<br>3. Synchronous post-order orchestration service |
+| Handles "exactly once" loyalty points and MailFast's rate limit? How? | **Addressed only conceptually.** Generically stated that consumers must be idempotent to avoid duplicate points, and deferred MailFast rate limits to an Open Question. | **Handled concretely.** Proposed using the existing `orderID` from `PlaceOrder` as an idempotency key for deduplication in the loyalty consumer, and utilized RabbitMQ queues to buffer 200 orders/s peak bursts while throttling email dispatch below 50 emails/s. |
+| Anything invented (a number, tool or fact not in the scenario)? | **No fabricated facts, but made generic assumptions.** Because context was absent, it proposed abstract solutions without grounding in existing system constraints. | **No hallucinations.** Faithfully grounded all trade-offs in facts from `scenario.md` and code in `main.go`. Accurately identified that `main.go` currently lacks a transactional outbox and persistent order storage. |
 
 ## Take ownership: your final ADR
 
@@ -49,6 +49,6 @@ You will defend this ADR in front of a review board in Part B, so make sure you 
 
 | # | What you changed from the AI's draft | Why |
 |---|---|---|
-| 1 | | |
-| 2 | | |
-| 3 | | |
+| 1 | **Added Transactional Outbox Pattern and persistent storage to `checkoutservice` prior to event publishing** | AI's draft 2b only noted the lack of an outbox and order store as an open question. As the architect, I formally decided to introduce the Outbox Pattern to guarantee data durability and at-least-once delivery, preventing lost post-order events if RabbitMQ is temporarily down. |
+| 2 | **Specified concrete RabbitMQ topology: Fanout Exchange (`order.v1.events`), 3 independent queues, and Dead-Letter Queues (DLQ) with retry** | AI proposed RabbitMQ at a high conceptual level. The architect concretized this with a fanout exchange and 3 decoupled queues for fault isolation, adding DLQs with exponential backoff so external downtime (MailFast) does not poison or block main queue consumers. |
+| 3 | **Implemented Token Bucket Rate Limiting (capped at 45 req/s) and a Circuit Breaker on the Email Consumer** | AI only mentioned "limiting concurrency" vaguely. The architect enforced an explicit 45 req/s throttle (providing a safety buffer below MailFast's 50 req/s hard limit) and added a circuit breaker to prevent cascading failures during 200 orders/s peak surges. |
