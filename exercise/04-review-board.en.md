@@ -13,10 +13,11 @@ In groups of 4, choose **one** member's ADR to review (`docs/adr/0002-*.md`, plu
 
 | Role | Who | Brings |
 |---|---|---|
-| **Architect** | the ADR's author | defends the ADR |
-| **AI analyst** | | reads out the AI's review only, and may not add their own opinions |
-| **Product owner** | | role card P (business side) |
-| **Site reliability engineer (SRE)** | | role card S (operations side) |
+| **Architect** | Naphat Serirak (6632061321) | defends the ADR |
+| **AI analyst** | Chanatda Konchom (6631305321) | reads out the AI's review only, and may not add their own opinions |
+| **Product owner** | Ittichet Thongsang (6631363721) | role card P (business side) |
+| **Site reliability engineer (SRE)** | Chayut Archamongkol (6631307621) | role card S (operations side) |
+| **Security & privacy officer** | Napat Srisamut (6631314021) | role card X (security & privacy) |
 
 Groups of 5 add a **security & privacy officer** (role card X). In groups of 3, the architect also plays the AI analyst.
 
@@ -33,28 +34,35 @@ Groups of 5 add a **security & privacy officer** (role card X). In groups of 3, 
 
 ## 3. Record the decision (8 min, together)
 
-**ADR reviewed:** `docs/adr/0002-…` by …
-**Board members and roles:** …
+**ADR reviewed:** `docs/adr/0002-use-rabbitmq-for-post-order-processing.md` by Naphat Serirak (6632061321) ([GitHub Link](https://github.com/neennera/naphat-salab-aiagent/blob/main/docs/adr/0002-use-rabbitmq-for-post-order-processing.md))
+**Board members and roles:**
+- **Architect:** Naphat Serirak (6632061321)
+- **AI analyst:** Chanatda Konchom (6631305321)
+- **Product owner:** Ittichet Thongsang (6631363721)
+- **Site reliability engineer (SRE):** Chayut Archamongkol (6631307621)
+- **Security & privacy officer:** Napat Srisamut (6631314021)
 
-**Decision:** accept / accept with changes / reject
+**Decision:** accept with changes
 
 **Required changes:**
-1. …
+1. **Mitigate Dual-Write Risk (from AI review):** Implement a Transactional Outbox pattern or local persistent write in `checkoutservice` to guarantee that paid orders are never lost if the pod crashes before publishing to RabbitMQ.
 2. …
 3. …
+4. …
+5. …
 
 **Who raised what?** List every concern the board discussed.
 
 | # | Concern | Raised by (AI review / architect / PO / SRE / security) | Was it in the AI's review? | Could the AI have known? Why or why not? |
 |---|---|---|---|---|
-| 1 | | | | |
+| 1 | **Dual-Write / Crash-after-Payment Risk:** If pod restarts right after credit card charge but before publishing to RabbitMQ, message is lost. | AI review | Yes | Yes; the AI analyzed `checkoutservice/main.go` and recognized two decoupled sequential calls without transactional guarantees. |
 | 2 | | | | |
 | 3 | | | | |
 | 4 | | | | |
 | 5 | | | | |
 
-**The AI's best finding** (one the humans had missed): …
-**The AI's weakest finding** (generic, wrong or irrelevant): …
+**The AI's best finding** (one the humans had missed): The identification of the Dual-Write risk (crash-after-payment) in `checkoutservice`, exposing the critical flaw where customer cards are charged but RabbitMQ publication could fail silently without an Outbox pattern.
+**The AI's weakest finding** (generic, wrong or irrelevant): The generic warning about Eventual Consistency impacting UX, which provided standard textbook commentary without offering concrete business mitigations or operational thresholds.
 
 ## 4. Individual reflection (≤ 150 words, each student, after class is fine)
 
