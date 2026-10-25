@@ -2,7 +2,7 @@
 
 # Prompt log
 
-**Name / Student ID:** Chanatda Khonchom / 6631305321 (ชนัดดา คนชม)
+**Name / Student ID:** Chanatda Konchom / 6631305321 (ชนัดดา คนชม)
 **Agent(s) used:** GitHub Copilot (Agent mode in VS Code)
 **Model(s):** Auto (gpt-4o / gpt-6-luna)
 **Plan / tier:** Copilot Student

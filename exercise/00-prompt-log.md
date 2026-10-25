@@ -2,7 +2,7 @@
 
 # บันทึกการใช้ prompt
 
-**ชื่อ / รหัสนิสิต:** ชนัดดา คนชม / 6631305321 (Chanatda Khonchom)
+**ชื่อ / รหัสนิสิต:** ชนัดดา คนชม / 6631305321 (Chanatda Konchom)
 **agent ที่ใช้:** GitHub Copilot (Agent mode in VS Code)
 **โมเดล:** Auto (gpt-4o / gpt-6-luna)
 **แพ็กเกจที่ใช้:** Copilot Student
