@@ -7,6 +7,10 @@
 
 After Part A and Part B: which parts of an architect's work would you trust AI with, and which would you keep for humans? Use one concrete example from your board meeting.
 
-I trust AI as a "Chief Analyst" for technical and structural tasks: scanning codebases to recover static dependencies, drafting initial ADRs, and uncovering subtle code-level architectural flaws. In our board meeting, the AI's best finding was detecting the non-transactional Dual-Write risk in `checkoutservice` (crash-after-payment), which the human team had overlooked.
+Across Parts A and B, I learned that AI excels as a "Chief Analyst" for syntactic and structural tasks, but human architects must remain "Chief Strategists" for organizational and operational governance.
 
-However, I would keep governance, operational viability, and business trade-offs strictly for humans. AI cannot reason about tacit organizational knowledge, regulatory status, or team capabilities outside its prompt context. For instance, while the AI suggested RabbitMQ, our SRE revealed that developers only ran it on laptops with zero production experience, and cluster budget approvals would delay the 11.11 launch. Humans must remain Chief Strategists.
+I trust AI to scan codebases, map structural dependencies, draft ADR boilerplate, and identify low-level failure modes. During our board meeting, the AI's most valuable finding was catching the non-transactional Dual-Write risk in `checkoutservice`: a pod crash between charging the credit card and publishing to RabbitMQ drops messages permanently without an Outbox pattern. Human reviewers initially missed this implementation flaw.
+
+However, architectural decisions depend heavily on tacit organizational knowledge, operational constraints, and regulatory compliance that AI cannot infer from code alone. During our board review, the AI recommended self-hosted RabbitMQ based on prompt mentions of developer familiarity. Yet, our SRE revealed that developers had only run RabbitMQ on local laptops—no one had production operational experience, monitoring runbooks did not exist, and cluster budget approvals required two weeks, threatening our three-week 11.11 launch deadline. Furthermore, our Security officer noted pending PDPA legal approvals and strict 30-day data retention limits that the AI could never know.
+
+Ultimately, AI is invaluable for spotting hidden technical edge cases, but human judgment is indispensable for evaluating team capability, business feasibility, compliance, and final risk acceptance.
